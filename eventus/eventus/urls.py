@@ -3,7 +3,7 @@ from django.contrib import admin
 
 urlpatterns = patterns('',
     
-    url(r'^', include('apps.eventos.urls', namespace='eventos')),
+    url(r'^', include('apps.events.urls', namespace='events')),
 
     url(r'^admin/', include(admin.site.urls)),
 

@@ -4,4 +4,4 @@ from django.views.generic import TemplateView
 
 class HomeTemplateView(TemplateView):
 
-    template_name = 'eventos/home.html'
+    template_name = 'events/home.html'

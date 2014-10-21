@@ -8,9 +8,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.7/ref/settings/
 """
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-import os
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+# Build paths inside the project
+from unipath import Path
+PROJECT_DIR = Path(__file__).ancestor(3)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
@@ -40,7 +40,7 @@ THIRD_PARTY_APPS = (
 
 LOCAL_APPS = (
     'apps.users',
-    'apps.eventos',
+    'apps.events',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -64,7 +64,7 @@ WSGI_APPLICATION = 'eventus.wsgi.application'
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Lima'
 
 USE_I18N = True
 
@@ -72,8 +72,8 @@ USE_L10N = True
 
 USE_TZ = True
 
-TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
-
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+TEMPLATE_DIRS = [
+    PROJECT_DIR.child('templates')
+]
 
 AUTH_USER_MODEL = 'users.User'
